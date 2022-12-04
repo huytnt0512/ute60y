@@ -1,0 +1,149 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+      @content;
+    }
+  }
+  @mixin tablet {
+    @media screen and (max-width: 768px) {
+      @content;
+    }
+  }
+  @mixin laptop {
+    @media screen and (max-width: 1200px) {
+      @content;
+    }
+}
+
+.activities{
+    h2 {
+        margin: 20px 0;
+    }
+
+    
+
+    .quote{
+        i{
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-size: 120px;
+            opacity: 0.1;
+        }
+        @include tablet{
+            display: none;
+        }
+    }
+
+
+    .slider {
+        max-width: 80%;
+        margin: auto;
+        height: 500px;
+        position: relative;
+        display: flex;
+        overflow: hidden;
+        @include tablet{
+            height: 80vh;
+            margin-top: 20%;
+        }
+
+        article {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: all 0.3s linear;
+            @include mobile{
+               flex-direction: column;
+            }
+
+            .left {
+                width: 35%;
+                height: 420px;
+                padding: 35px;
+                margin: 20px;
+                text-align: center;
+                @include tablet{
+                    width: 250px;
+                    height: 40%;
+                    margin: 0;
+                }
+        
+                img{
+                    width: 90%;
+                    height: 90%;
+                    object-fit: cover;
+                }
+                h2{
+                    @include tablet{
+                        font-size: 16px;
+                    }
+                }
+            }
+        
+            .right {
+                width: 65%;
+                padding: 0 0 0 50px;
+                margin: 0 20px 0 0;
+                @include tablet{
+                    width: 100%;
+                }
+
+                @include mobile{
+                    width: 100%;
+                    padding: 0;
+                }
+
+                .content {
+                    padding: 50px;
+            
+                    h1 {
+                        font-weight: 500;
+                      }
+            
+                    h3 {
+                        font-size: 18px;
+                        font-weight: 400;
+                        margin-bottom: 40px;
+                        @include tablet{
+                            font-size: 14px;
+                        }
+                    }  
+                }
+            }
+        }
+    
+        article.activeSlider {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        article.lastSlider {
+            transform: translateX(-100%);
+        }
+        article.nextSlider {
+            transform: translateX(100%);
+        }
+
+        .slider_button {
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            
+            @include tablet{
+            position: absolute;
+            top: 0;
+            right: 20px;
+            }
+            .prev_btn {
+                margin-right: 30px;
+            }
+        }
+    }
+    
+
+    .box_shodow:hover{
+        background: none;
+        transform: translateY(-0);
+    }  
+}

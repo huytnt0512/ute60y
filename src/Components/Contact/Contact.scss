@@ -1,0 +1,94 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+      @content;
+    }
+  }
+  @mixin tablet {
+    @media screen and (max-width: 768px) {
+      @content;
+    }
+  }
+  @mixin laptop {
+    @media screen and (max-width: 1200px) {
+      @content;
+    }
+}
+
+
+.Contact{
+
+    .d_flex{
+        @include mobile{
+            flex-direction: column;
+        }
+    }
+    .left {
+        width: 36%;
+        @include mobile{
+            width: 100%;
+        }
+
+        img {
+            width: 80%;
+            height: 200px;
+            @include tablet{
+                width: 90%;
+                height: 130px;
+                // width: 200px;
+                // height: 130px;
+            }
+            @include mobile{
+                width: 80%;
+                // width: 350px;
+                // height: 200px;
+            }
+          }
+
+        .box {
+            padding: 30px;
+        }
+        
+        .details{
+            h1 {
+                font-size: 37px;
+                @include tablet{
+                    font-size: 18px;
+                }
+            }
+
+            p {
+                font-size: 17px;
+                @include tablet{
+                    font-size: 12px;
+                }
+            }
+        }
+      }
+    
+    .right {
+        width: 60%;
+        padding: 35px;
+        @include mobile{
+            width: 100%;
+        }
+
+        button {
+            width: 100%;
+            color: #4793d6;
+        }
+
+        button:hover {
+            color: white;
+        }
+
+        .input{
+            span {
+                font-size: 13px;
+            }
+
+            input {
+                margin-top: 10px;
+            }
+        }
+    }  
+}
